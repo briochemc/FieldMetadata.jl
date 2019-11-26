@@ -21,17 +21,20 @@ This example that adds string description metadata to fields in a struct:
    a::Int     | "an Int with a description"  
    b::Float64 | "a Float with a description"
 end
+```
 
-d = Described(1, 1.0)
+```julia
+julia> d = Described(1, 1.0)
+Described(1, 1.0)
 
-julia>describe(d, :a) 
-"an Int with a description"  
+julia> describe(d, :a)
+"an Int with a description"
 
-julia>describe(d, :b) 
-"a Float with a description"  
+julia> describe(d, :b)
+"a Float with a description"
 
-julia>describe(d, :c) 
-""  
+julia> describe(d, :c)
+""
 ```
 
 A more complex example :
@@ -47,7 +50,9 @@ using Parameters
 end
 
 k = WithKeyword()
+```
 
+```julia
 julia> describe(k, :b) 
 "another field with a range, description and default"
 
@@ -73,7 +78,9 @@ julia> describe(d)
 @redescribe struct Described
    b | "a much better description"
 end
+```
 
+```julia
 julia> d = Described(1, 1.0)
 
 julia> describe(d)
